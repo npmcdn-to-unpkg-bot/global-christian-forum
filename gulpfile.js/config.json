@@ -1,14 +1,13 @@
 {
   "root": {
     "src": "./src",
-    "dest": "./public"
+    "dest": "./htdocs/wp-content/themes/gcf"
   },
 
   "tasks": {
     "browserSync": {
-      "server": {
-        "baseDir": "public"
-      }
+      "browser": "google chrome",
+      "proxy": "forum.dev"
     },
 
     "static": {
@@ -29,6 +28,7 @@
       },
       "extractSharedJs": false
     },
+
     "css": {
       "src": "stylesheets",
       "dest": "stylesheets",
@@ -36,23 +36,28 @@
         "browsers": ["last 3 version"]
       },
       "sass": {
-        "indentedSyntax": true,
+        "indentedSyntax": false,
+        "errLogToConsole": true,
+        "outputStyle": "compressed",
         "includePaths": [
-          "./node_modules/normalize.css"
+          "./node_modules/normalize.css",
+          "./src/scss/base",
+          "./src/scss/components"
         ]
       },
       "extensions": ["sass", "scss", "css"]
     },
 
-    "html": {
-      "src": "html",
+    "twig": {
+      "src": "views",
+      "dest": "views",
+      "extensions": ["twig"]
+    },
+
+    "php": {
+      "src": "php",
       "dest": "./",
-      "dataFile": "data/global.json",
-      "htmlmin": {
-        "collapseWhitespace": true
-      },
-      "extensions": ["html", "json"],
-      "excludeFolders": ["layouts", "shared", "macros", "data"]
+      "extensions": ["php"]
     },
 
     "images": {
@@ -67,16 +72,10 @@
       "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
     },
 
-    "iconFont": {
-      "src": "icons",
-      "dest": "fonts",
-      "sassDest": "generated",
-      "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
-    },
-
     "svgSprite": {
       "src": "icons",
       "dest": "images",
+      "injectTo": "svg.twig",
       "extensions": ["svg"]
     },
 

@@ -25,7 +25,12 @@ for (var i = 0; i < moduleElements.length; i++) {
   // modules/disappear.js
   export default class Disappear {
     constructor(el) {
+      this.el = el
       el.style.display = none
+      this.doit()
+    }
+    doit() {
+      this.el.classList.add('highlight')
     }
   }
 */
