@@ -44,7 +44,8 @@
         "errLogToConsole": true,
         "outputStyle": "compressed",
         "includePaths": [
-          "./node_modules/normalize.css"
+          "./node_modules/normalize.css",
+          "./node_modules/breakpoint-sass/stylesheets"
         ]
       },
       "extensions": ["sass", "scss", "css"]
