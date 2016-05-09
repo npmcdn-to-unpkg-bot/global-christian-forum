@@ -6,13 +6,13 @@ function my_format_TinyMCE( $in ) {
   $in['block_formats'] = "Heading=h3; Sub-Heading=h5; Paragraph=p;";
 	return $in;
 }
-add_filter( 'tiny_mce_before_init', 'my_format_TinyMCE' );
+// add_filter( 'tiny_mce_before_init', 'my_format_TinyMCE' );
 
 
 /*=============================================*/
 /* Hide admin bar on the front-end for all users
 /*=============================================*/
-add_action('after_setup_theme', 'remove_admin_bar');
+// add_action('after_setup_theme', 'remove_admin_bar');
 function remove_admin_bar() {
   show_admin_bar(false);
 }
@@ -39,7 +39,7 @@ function my_login_logo_url() {
 // Alt attribute
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 function my_login_logo_url_title() {
-  return 'Karawaci Presbyterian Church';
+  return 'Global Christian Forum';
 }
 
 /*=============================================*/
@@ -66,4 +66,4 @@ function rememberme_checked() {
 /* Remove Gravity Form wysiwyg button
 /* and rely on ACF plugin
 /*=============================================*/
-add_filter( 'gform_display_add_form_button', '__return_false');
+// add_filter( 'gform_display_add_form_button', '__return_false');

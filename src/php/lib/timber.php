@@ -13,74 +13,64 @@ class StarterSite extends TimberSite {
 	function __construct() {
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
-		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		parent::__construct();
 	}
 
-	function register_post_types() {
-		require('lib/custom-types.php');
-	}
-
-	function register_taxonomies() {
-		require('lib/taxonomies.php');
-	}
-
 	function add_to_context( $context ) {
-
-		// Generate menu exclusion list
-		$blacklist = get_field('global_menu_exclude', 'option');
-		$exclude = array();
-		foreach ($blacklist as $item) {
-			$exclude[] = $item->ID;
-		}
-
-		// Retrieve menu items and label them if in exclusion list
-		$context['menu'] = array();
-		$menus = get_field('global_menu', 'option');
-		foreach ($menus as $menu) {
-			$post = new TimberPost($menu->ID);
-			// Based on current URL - is this menu item active?
-			$active = $post->slug() == explode("/", $_SERVER[REQUEST_URI])[1] ? true : false;
-
-			$children = array();
-		  foreach ($post->get_children() as $child) {
-		    array_push($children, array(
-		      'id' => $child->id(),
-		      'title' => $child->title(),
-		      'link' => $child->link()
-		    ));
-		  }
-	    array_push($context['menu'], array(
-				'id' => $post->id(),
-				'slug' => $post->slug(),
-				'title' => $post->title(),
-				'link' => $post->link(),
-				'children' => $children,
-				'active' => $active,
-				'exclude' => in_array($post->id(), $exclude)
-	    ));
-	  }
-
-		// Put client info inside context
-		$context['info'] = array(
-			'name' => get_field('global_name', 'option'),
-			'phone' => get_field('global_phone', 'option'),
-			'email' => get_field('global_email', 'option')
-		);
-
-		// Social Links
-		$context['social'] = array(
-			'facebook' => get_field('global_facebook', 'option'),
-			'youtube' => get_field('global_youtube', 'option')
-		);
-
-		// 404 stuff
-		$context['404'] = array(
-			'image' => reset(reset(get_field('global_image', 'option')))['thumb'],
-			'title' => get_field('global_404_title', 'option'),
-			'description' => get_field('global_404_description', 'option')
-		);
+		//
+		// // Generate menu exclusion list
+		// $blacklist = get_field('global_menu_exclude', 'option');
+		// $exclude = array();
+		// foreach ($blacklist as $item) {
+		// 	$exclude[] = $item->ID;
+		// }
+		//
+		// // Retrieve menu items and label them if in exclusion list
+		// $context['menu'] = array();
+		// $menus = get_field('global_menu', 'option');
+		// foreach ($menus as $menu) {
+		// 	$post = new TimberPost($menu->ID);
+		// 	// Based on current URL - is this menu item active?
+		// 	$active = $post->slug() == explode("/", $_SERVER[REQUEST_URI])[1] ? true : false;
+		//
+		// 	$children = array();
+		//   foreach ($post->get_children() as $child) {
+		//     array_push($children, array(
+		//       'id' => $child->id(),
+		//       'title' => $child->title(),
+		//       'link' => $child->link()
+		//     ));
+		//   }
+	  //   array_push($context['menu'], array(
+		// 		'id' => $post->id(),
+		// 		'slug' => $post->slug(),
+		// 		'title' => $post->title(),
+		// 		'link' => $post->link(),
+		// 		'children' => $children,
+		// 		'active' => $active,
+		// 		'exclude' => in_array($post->id(), $exclude)
+	  //   ));
+	  // }
+		//
+		// // Put client info inside context
+		// $context['info'] = array(
+		// 	'name' => get_field('global_name', 'option'),
+		// 	'phone' => get_field('global_phone', 'option'),
+		// 	'email' => get_field('global_email', 'option')
+		// );
+		//
+		// // Social Links
+		// $context['social'] = array(
+		// 	'facebook' => get_field('global_facebook', 'option'),
+		// 	'youtube' => get_field('global_youtube', 'option')
+		// );
+		//
+		// // 404 stuff
+		// $context['404'] = array(
+		// 	'image' => reset(reset(get_field('global_image', 'option')))['thumb'],
+		// 	'title' => get_field('global_404_title', 'option'),
+		// 	'description' => get_field('global_404_description', 'option')
+		// );
 
 		// Site default
 		$context['site'] = $this;

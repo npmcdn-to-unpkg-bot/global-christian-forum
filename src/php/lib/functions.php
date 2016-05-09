@@ -1,4 +1,35 @@
 <?php
+/*
+ **************************
+ * Custom Theme Functions *
+ **************************
+ */
+// Enqueue scripts
+function gcf_scripts() {
+  // Use jQuery from Google, enqueue in footer
+  if (!is_admin()) {
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js', array(), null, true);
+    wp_enqueue_script('jquery');
+  }
+
+  // Enqueue stylesheet and scripts. Use minified for production.
+  wp_enqueue_style( 'gcf-styles', get_stylesheet_directory_uri() . '/stylesheets/app.css', null);
+  wp_enqueue_script( 'gcf-js', get_stylesheet_directory_uri() . '/javascripts/app.js', array('jquery'), null, true );
+  // wp_enqueue_style( 'gcf-styles', get_stylesheet_directory_uri() . '/assets/css/main.css', 1.0);
+  // wp_enqueue_script( 'gcf-js', get_stylesheet_directory_uri() . '/assets/js/build/scripts.js', array('jquery'), '1.0.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'gcf_scripts' );
+
+// Customize the editor style
+// It's just the Bootstrap typography, but I like it. Got the idea from Roots.io.
+
+function tsk_editor_styles() {
+  add_editor_style( 'assets/css/editor-style.css' );
+}
+// add_action( 'after_setup_theme', 'tsk_editor_styles' );
+
+
 /**
 * Singularize a string.
 * Converts a word to english singular form.

@@ -21,13 +21,13 @@ module.exports = function(env) {
   var webpackConfig = {
     context: jsSrc,
     plugins: [
-      // jQuery as global
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery'
-      }),
-      // Disable moment.js locale languages requires
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      // // jQuery as global
+      // new webpack.ProvidePlugin({
+      //   $: 'jquery',
+      //   jQuery: 'jquery'
+      // }),
+      // // Disable moment.js locale languages requires
+      // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ],
     resolve: {
       root: jsSrc,
@@ -40,11 +40,11 @@ module.exports = function(env) {
           loader: 'babel-loader',
           exclude: /node_modules/,
           query: config.tasks.js.babel
-        },
-        {
-          test: /(flickity|imagesloaded|fizzy-ui-utils|get-size|unipointer)/,
-          loader: 'imports?define=>false&this=>window'
         }
+        // {
+        //   test: /(flickity|imagesloaded|fizzy-ui-utils|get-size|unipointer)/,
+        //   loader: 'imports?define=>false&this=>window'
+        // }
       ]
     }
   }

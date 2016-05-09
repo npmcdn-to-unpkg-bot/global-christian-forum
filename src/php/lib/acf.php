@@ -8,14 +8,14 @@
 if( function_exists('acf_add_options_page') ) {
 
 	// Essentials //////////////////////////////
-	acf_add_options_page(array(
-		'page_title' 	=> 'Important Services & Server Details',
-		'menu_title'	=> 'Essentials',
-		'menu_slug' 	=> 'essentials',
-		'position' 		=> '99',
-		'icon_url' 		=> 'dashicons-admin-network'
-		'redirect'		=> false  // Redirect to first sub opt page
-	));
+	// acf_add_options_page(array(
+	// 	'page_title' 	=> 'Important Services & Server Details',
+	// 	'menu_title'	=> 'Essentials',
+	// 	'menu_slug' 	=> 'essentials',
+	// 	'position' 		=> '99',
+	// 	'icon_url' 		=> 'dashicons-admin-network'
+	// 	'redirect'		=> false  // Redirect to first sub opt page
+	// ));
 }
 
 //=============================================
