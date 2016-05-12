@@ -2,8 +2,9 @@
 
 <body class="{{body_class}}">
 
-	{% block content %}
-	{% endblock %}
+	{% block before_content %}{% endblock %}
+	{% block content %}{% endblock %}
+	{% block after_content %}{% endblock %}
 
 	{{ function('wp_footer') }}
 </body>

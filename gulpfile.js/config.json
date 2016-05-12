@@ -40,15 +40,14 @@
         "browsers": ["last 3 version"]
       },
       "sass": {
-        "indentedSyntax": true,
+        "indentedSyntax": false,
         "errLogToConsole": true,
         "outputStyle": "compressed",
         "includePaths": [
-          "./node_modules/normalize.css",
-          "./node_modules/breakpoint-sass/stylesheets"
+          "./node_modules/normalize.css"
         ]
       },
-      "extensions": ["sass", "scss", "css"]
+      "extensions": ["scss", "css"]
     },
 
     "twig": {

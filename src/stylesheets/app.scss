@@ -1,18 +1,18 @@
 // ======================
 // Base Imports
 // ======================
-@import normalize
-@import base/variables
-@import base/mixins
-@import base/reboot
-@import base/typography
+@import "normalize";
+@import "base/variables";
+@import "base/mixins";
+@import "base/reboot";
+@import "base/typography";
 
 // ======================
 // Components Styling
 // ======================
-// @import components/style
+// @import "components/jumbotron";
 
 // ======================
 // Page Styling
 // ======================
-@import pages/front-page
+@import "pages/front-page";
