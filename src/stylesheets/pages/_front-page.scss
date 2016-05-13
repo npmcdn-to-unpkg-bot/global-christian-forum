@@ -1,12 +1,94 @@
-@component Media {
+.Media {
   padding-bottom: 1rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid $gray-lighter;
-
-  @descendent body {
-    display: flex;
+  &-body {
+    box: horizontal;
   }
-  @descendent image {
+  &-image {
     width: 25%;
   }
+}
+
+.Card {
+  border-right: 1px solid $gray-lighter;
+  &--row {
+    box: horizontal;
+    .Card-image {
+      width: 66.666%;
+      margin-right: $spacer-single*2;
+    }
+  }
+  &--column {
+    box: vertical;
+    width: 33.33333%;
+    padding: 0 $spacer-single;
+  }
+}
+
+.List {
+  list-style: none;
+  padding-left: 0;
+  > li {
+    margin-bottom: $spacer-single;
+    font-weight: $font-weight-bold;
+  }
+}
+
+.Nav {
+  &--inline {
+    box: horizontal space-around;
+  }
+  &-link {
+    &.is-active::after {
+      content: '';
+      display: block;
+      height: 5px;
+      margin-top: $spacer-quarter;
+      background-color: $gray-light;
+    }
+  }
+}
+
+.Figure {
+  display: inline-block;
+  margin: $spacer-single -25px;
+  &-image {
+    margin-bottom: $spacer-half;
+    line-height: 1;
+  }
+  &-caption {
+    font-size: $font-size-h6;
+    color: $figure-caption-color;
+    line-height: $figure-caption-line-height;
+    padding: 0 25px;
+  }
+  &--left {
+    @include from(md) {
+      float: left;
+      margin: $spacer-half $spacer-single * 1.75 $spacer-half -25px;
+      max-width: 50%;
+    }
+  }
+  &--right {
+    @include from(md) {
+      float: right;
+      margin: $spacer-half -25px $spacer-half $spacer-single * 1.75;
+      max-width: 50%;
+    }
+  }
+}
+
+.Banner {
+  box: horizontal center middle;
+  height: 200px;
+  &::after {
+    background: repeating-linear-gradient(115deg,rgba(155,155,155,.15),rgba(155,155,155,0) 3px,rgba(155,155,155,0) 3px,rgba(155,155,155,0) 5px);
+  }
+}
+
+.Footer {
+  font-size: 1rem;
+  background-color: #efefef;
+  padding: $spacer-single*2 0;
 }

@@ -3,19 +3,26 @@ html {
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;
   font-family: $font-family;
-  font-size: $font-size-root;
-  font-size: responsive;
-  // font-size: responsive 12px 21px; /* min-size, max-size
-  // font-range: 420px 1280px; /* viewport widths between which font-size is fluid
+  font-size: 17px;
+  @include from(sm) {
+    font-size: 18px;
+  }
+  @include from(md) {
+    font-size: 19px;
+  }
+  @include from(lg) {
+    font-size: 20px;
+  }
 }
 
 body {
-  font-size: $font-size;
+  text: $body-color $font-weight-normal left none $font-size $line-height normal;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: $font-weight-bold;
   color: $headings-color;
+  line-height: $headings-line-height;
 }
 
 h1 {
@@ -76,4 +83,26 @@ hr {
   margin: 0;
   padding-top: $hr-padding;
   padding-bottom: $hr-padding;
+}
+
+
+//=============================================
+// Classes
+//=============================================
+
+.Lead {
+  text: $lead-font-color $lead-font-weight left none $lead-font-size $lead-line-height normal;
+  margin: $lead-margin 0;
+  &--intro {
+    text-align: left;
+  }
+  &--pullquote {
+    text-align: center;
+  }
+}
+.meta {
+  margin-bottom: 0;
+}
+.Heading {
+  text: #ababab $font-weight-bold left uppercase $font-size-h5 $headings-line-height 2px;
 }

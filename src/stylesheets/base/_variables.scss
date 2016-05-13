@@ -6,12 +6,21 @@ $white:                        #ffffff !default;
 $blue:                         #12AAEB !default;
 $gray-base:                    $black !default;
 $gray-darker:                  lighten($gray-base, 13.5%) !default;
-$gray-dark:                    lighten($gray-base, 20%) !default;
+$gray-dark:                    lighten($gray-base, 25%) !default;
 $gray:                         lighten($gray-base, 33.5%) !default;
 $gray-light:                   lighten($gray-base, 46.7%) !default;
 $gray-lighter:                 lighten($gray-base, 93.5%) !default;
 $brand-primary:                #D75E1E !default;
 $brand-secondary:              #394B61 !default;
+
+
+//=============================================
+// Spacer
+//=============================================
+$spacer-quarter:               .25rem !default;
+$spacer-half:                  .5rem !default;
+$spacer-threefourth:           .75rem !default;
+$spacer-single:                1rem !default;
 
 
 //=============================================
@@ -25,6 +34,9 @@ $grid-breakpoints: (
   xl: 75em,
   xxl: 87.5em
 ) !default;
+$wrapper-width:                 1600px !default;
+$container-width:               1200px !default;
+$container-text-width:          725px !default;
 
 
 //=============================================
@@ -32,7 +44,6 @@ $grid-breakpoints: (
 //=============================================
 
 // Body ///////////////////////////////////////
-$body-bg:                       $white !default;
 $body-color:                    $gray-dark !default;
 
 // Links //////////////////////////////////////
@@ -76,21 +87,28 @@ $font-size-root:               16px !default;
 $font-size:                    1rem !default;
 
 // Common properties //////////////////////////
-$font-weight-light:            300 !default;
+$font-weight-light:            200 !default;
 $font-weight-normal:           400 !default;
-$font-weight-bold:             500 !default;
+$font-weight-bold:             700 !default;
 $headings-color:               $gray-darker !default;
 
 // Sans Serif //////////////////////////
-$font-family:                  "Helvetica Neue",Helvetica,Arial,sans-serif;
-$font-size-h1:                 2.441rem !default;
-$font-size-h2:                 1.953rem !default;
-$font-size-h3:                 1.563rem !default;
-$font-size-h4:                 1.25rem !default;
+$font-family:                  "Source Sans Pro", "PT Sans", "Helvetica Neue", Helvetica, Calibri, Arial, sans-serif;
+$font-size-h1:                 2.074rem !default;
+$font-size-h2:                 1.728rem !default;
+$font-size-h3:                 1.44rem !default;
+$font-size-h4:                 1.2rem !default;
 $font-size-h5:                 1rem !default;
-$font-size-h6:                 .8rem !default;
-$line-height:                  1.5 !default;
-$headings-line-height-serif:   ($line-height - .25) !default;
+$font-size-h6:                 .833rem !default;
+$line-height:                  1.625 !default;
+$headings-line-height:         1.25 !default;
+
+// Lead ///////////////////////////////////
+$lead-font-size:               $font-size-h4 !default;
+$lead-font-weight:             $font-weight-light !default;
+$lead-font-color:              $gray !default;
+$lead-line-height:             1.45 !default;
+$lead-margin:                  $lead-font-size*1.25;
 
 
 //=============================================
@@ -99,3 +117,28 @@ $headings-line-height-serif:   ($line-height - .25) !default;
 
 // Z-Index ///////////////////////////////////
 $zindex-modal:                   1000 !default;
+
+
+//=============================================
+// Components
+//=============================================
+
+// Buttons ///////////////////////////////////
+$button-padding:                20px 30px !default; // rem this (x x+10)
+
+// Banner ///////////////////////////////////
+$banner-height:                 200px !default;
+
+// Pagination ///////////////////////////////
+$pagination-font-size:          15px;
+
+// Figures
+$figure-caption-font-size:      90% !default;
+$figure-caption-line-height:    1.4 !default;
+$figure-caption-color:          #ababab !default;
+
+// Footer ////////////////////////////////
+$footer-bg-color:               #efefef !default;
+$footer-font-size:              14px !default; // Change this to rem per Chris coyier
+$footer-menu-color:             $black !default;
+$footer-submenu-color:          #666 !default;

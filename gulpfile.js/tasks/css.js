@@ -11,14 +11,13 @@ var handleErrors = require('../lib/handleErrors')
 var path         = require('path')
 
 // PostCSS processors
-var bem             = require('postcss-bem')
 var short           = require('postcss-short')
 var clearfix        = require('postcss-clearfix')
-var responsiveType  = require('postcss-responsive-type')
+var flexbox         = require('postcss-flexbox')
+var flexbugs        = require('postcss-flexbugs-fixes')
 var quantityQueries = require('postcss-quantity-queries')
 var autoprefixer    = require('autoprefixer')(config.tasks.css.autoprefixer)
 var cssnano         = require('cssnano')
-var cssnext         = require('postcss-cssnext')
 
 var paths = {
   src: path.join(config.root.src, config.tasks.css.src, '/**/*.{' + config.tasks.css.extensions + '}'),
@@ -27,17 +26,17 @@ var paths = {
 
 var cssTask = function () {
   var processors = [
-    bem,
     short,
     clearfix,
-    responsiveType,
+    flexbox,
+    flexbugs,
     quantityQueries,
     autoprefixer,
     cssnano
   ]
   return gulp.src(paths.src)
     .pipe(gulpif(!global.production, sourcemaps.init()))
-    .pipe(sass(config.tasks.css.sass))
+    .pipe(sass(config.tasks.css.sass)).on('error', handleErrors)
     .pipe(postcss( processors )).on('error', handleErrors)
     .pipe(gulpif(!global.production, sourcemaps.write()))
     .pipe(gulp.dest(paths.dest))

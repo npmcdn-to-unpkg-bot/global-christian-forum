@@ -1,0 +1,13 @@
+.wrapper {
+  max-width: $wrapper-width;
+  margin: 0 auto;
+}
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+}
+.container-text {
+  max-width: $container-text-width;
+  padding: 0 $spacer-single*1.25;
+  margin: 0 auto;
+}
