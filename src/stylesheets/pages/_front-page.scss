@@ -1,12 +1,30 @@
+.Spacer {
+  height: 100px;
+}
+
 .Media {
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
+  padding-bottom: $spacer-single*2;
+  margin-bottom: $spacer-single*2;
   border-bottom: 1px solid $gray-lighter;
+  &-head {
+    margin-bottom: $spacer-single*1.25;
+  }
+  &-tag {
+    margin-bottom: $spacer-threefourth;
+  }
+  &-title a {
+    color: $brand-primary;
+  }
   &-body {
-    box: horizontal;
+    box: horizontal center space-between;
+  }
+  &-content {
+    width: 65%;
+    padding-right: $spacer-single*1.5;
   }
   &-image {
-    width: 25%;
+    width: 35%;
+
   }
 }
 
@@ -27,26 +45,52 @@
 }
 
 .List {
-  list-style: none;
-  padding-left: 0;
-  > li {
-    margin-bottom: $spacer-single;
-    font-weight: $font-weight-bold;
+  @include normalist;
+  &-sublist {
+    @include normalist;
+  }
+  &--inline {
+    box: vertical wrap;
+    text-align: center;
+    @include from(lg) {
+      box: horizontal wrap space-between;
+      text-align: left;
+    }
+  }
+  &--footer {
+    > li > a {
+      display: block;
+      margin-bottom: $spacer-half;
+      color: $footer-menu-color;
+      font-weight: $font-weight-bold;
+    }
+    .List-sublist {
+      display: none;
+      @include from(lg) {
+        // Limit to 3 columns
+        display: block;
+      }
+      li {
+        margin-bottom: $spacer-half;
+      }
+      a {
+        color: $footer-submenu-color;
+        font-weight: $font-weight-normal;
+      }
+    }
   }
 }
 
 .Nav {
   &--inline {
-    box: horizontal space-around;
+    box: horizontal space-between;
   }
-  &-link {
-    &.is-active::after {
-      content: '';
-      display: block;
-      height: 5px;
-      margin-top: $spacer-quarter;
-      background-color: $gray-light;
-    }
+  .is-active::after {
+    content: '';
+    display: block;
+    height: 5px;
+    margin-top: $spacer-quarter;
+    background-color: $gray-light;
   }
 }
 
@@ -80,15 +124,183 @@
 }
 
 .Banner {
-  box: horizontal center middle;
-  height: 200px;
-  &::after {
-    background: repeating-linear-gradient(115deg,rgba(155,155,155,.15),rgba(155,155,155,0) 3px,rgba(155,155,155,0) 3px,rgba(155,155,155,0) 5px);
+  @include white;
+  height: $banner-with-nav-height;
+  margin-bottom: $banner-margin-bottom;
+  background: $banner-fallback no-repeat center center / cover;
+  .container {
+    width: $container-width;
+    box: vertical center;
+  }
+  &-body {
+    box: vertical middle;
+    box-item: flex-1;
+  }
+  &.with-nav .Nav {
+    width: 100%;
+    background-color: $white;
+    padding: $spacer-half;
+    a {
+      color: $brand-primary;
+    }
   }
 }
 
 .Footer {
-  font-size: 1rem;
-  background-color: #efefef;
-  padding: $spacer-single*2 0;
+  font-size: $font-size 1.25;
+  background-color: $footer-bg-color;
+  padding-top: $spacer-single*4;
+  margin-top: $spacer-single*3;
+  @include from(lg) {
+    font-size: $footer-font-size 1.25;
+  }
+  @at-root {
+    .legal {
+      margin-top: $spacer-single*2.5;
+      background-color: $white;
+      padding: $spacer-single 0;
+      &-links {
+        box: horizontal nowrap middle right;
+      }
+      a {
+        display: inline-block;
+        color: lighten($footer-submenu-color, 35%);
+        & + a {
+          padding-left: $spacer-single*2;
+        }
+      }
+      &-dropdown {
+        flex: 1;
+        text-align: right;
+      }
+    }
+  }
+}
+
+.Button {
+  transition: all .175s ease-in-out;
+  border-radius: 2px;
+  display: inline-block;
+  padding: $button-padding;
+  margin-bottom: $spacer-single*1.25;
+  margin-right: $spacer-threefourth;
+  background-color: $button-bg;
+  text: $white $font-weight-bold left uppercase $font-size-h6 $headings-line-height 1px;
+
+  &--small {
+    padding: $button-small-padding;
+  }
+}
+
+.resource {
+  clear: fix;
+  &-sidebar {
+    float: left;
+    input[type="checkbox"] {
+      background-color: pink;
+    }
+  }
+  &-body {
+    float: right;
+    // width: (100%-$sidebar-width)-7%;
+  }
+}
+
+.Pill {
+  display: inline-block;
+  text: $pill-color $font-weight-bold left normal $pill-font-size 1 $pill-letter-spacing;
+  background-color: $pill-bg;
+  padding: $pill-padding;
+  margin: $pill-margin;
+  // &:last-of-type {
+  //   margin-bottom: $spacer-single*1.5;
+  // }
+}
+
+
+
+
+
+
+.SingleResource {
+  &-head {
+    margin-bottom: $spacer-single*2;
+  }
+  &-body {
+    background-color: #fafafa;
+    @at-root .SingleResource--document #{&} {
+      > .container {
+        box: horizontal;
+      }
+    }
+    @at-root .SingleResource--photo #{&} {
+      .Gallery {
+        background-color: $gallery-bg-color;
+        padding-top: $spacer-single*3;
+      }
+      > .container {
+        box: horizontal;
+        padding-top: $spacer-single*2.65;
+      }
+    }
+    @at-root .SingleResource--article #{&} {
+      background-color: $white;
+      > .container {
+        box: horizontal;
+      }
+    }
+  }
+  &-image {
+    width: 18%;
+    flex: 0 0 auto;
+    .List {
+      font-size: $font-size-h6;
+      color: $sidebar-color;
+      margin-top: $spacer-single;
+    }
+  }
+  &-sidebar {
+    width: 30%;
+    position: relative;
+    top: -$spacer-single*5;
+    margin-left: $spacer-single*2;
+    flex: 0 0 auto;
+    border-top: 8px solid #ddd;
+  }
+  &-content {
+    padding-right: $spacer-single*2;
+    .Button {
+      margin-top: $spacer-single;
+    }
+  }
+}
+
+
+.Gallery {
+  &-cell {
+    width: 100%;
+  }
+  &-nav {
+    margin-bottom: $spacer-half;
+    .Gallery-cell {
+      width: $gallery-thumbnail-size;
+      @include from(lg) {
+        width: $gallery-thumbnail-size;
+      }
+      margin: 0 $spacer-quarter;
+      &.is-nav-selected {
+        border: $gallery-selected-border;
+      }
+    }
+  }
+  &-caption {
+    margin: 0;
+    font-size: .9rem;
+    color: $gallery-color;
+    line-height: $figure-caption-line-height;
+    padding: $spacer-single*1.25 $spacer-half;
+    h5 {
+      color: $white;
+    }
+  }
 }

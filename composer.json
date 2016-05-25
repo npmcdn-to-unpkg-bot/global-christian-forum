@@ -11,7 +11,8 @@
 	"require": {
 		"johnpbloch/wordpress": "~4.5",
 		"wpackagist-plugin/timber-library": "^1.0.0",
-		"wpackagist-plugin/wordpress-importer": "^0.6.1"
+		"wpackagist-plugin/wordpress-importer": "^0.6.1",
+		"wpackagist-plugin/radio-buttons-for-taxonomies": "^1.7.7"
 	},
 	"extra": {
 		"wordpress-install-dir": "htdocs/wp",

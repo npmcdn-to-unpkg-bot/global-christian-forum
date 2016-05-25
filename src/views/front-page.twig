@@ -3,82 +3,70 @@
 {% block content %}
 <main class="wrapper">
 
-<div class="container-text">
-  <h1>Sample Heading</h1>
-  <p class="Lead Lead--intro">GCF works to safeguard the earth—its people, its plants and animals, and the natural systems on which all life depends.</p>
-  <h2>I am a Heading</h2>
-  <p>This report is jam-packed with excerpts of real-world statutes and regulations aimed at advancing juvenile detention reform. These examples, which support the core strategies of the Annie E. Casey Foundation’s Juvenile Detention Alternatives Initiative (JDAI), serve as clear and convenient references for stakeholders interested in updating state-level policies.</p>
-  <h3>I am a Heading</h3>
-  <figure class="Figure Figure--right">
-    <img src="https://d13yacurqjgara.cloudfront.net/users/95862/screenshots/2690565/untitled-1.jpg" class="Figure-image" alt="A generic square placeholder.">
-    <figcaption class="Figure-caption">Our work focuses on strengthening families, building stronger communities and ensuring access to opportunity, because children need all three to succeed.</figcaption>
-  </figure>
-    <p>Our work focuses on strengthening families, building stronger communities and ensuring access to opportunity, because children need all three to succeed. We advance research and solutions to overcome the barriers to success, help communities demonstrate what works and influence decision makers to invest in strategies based on solid evidence.</p>
-      <p class="lead">GCF works to safeguard the earth—its people, its plants and animals, and the natural systems on which all life depends.</p>
-      <h6 class="Heading">I am a Heading</h6>
-      <p>This report is jam-packed with excerpts of real-world statutes and regulations aimed at advancing juvenile detention reform. These examples, which support the core strategies of the Annie E. Casey Foundation’s Juvenile Detention Alternatives Initiative (JDAI), serve as clear and convenient references for stakeholders interested in updating state-level policies.</p>
-</div>
-  <article class="Media">
-    <div class="Media-head">
-      <h3 class="Media-title"><a href="#">Media heading</a></h3>
-      <p class="meta">March 1, 2014</p>
-    </div>
-    <div class="Media-body">
-      <div class="Media-image">
-        <img src="https://d13yacurqjgara.cloudfront.net/users/414899/screenshots/2689816/the_grant_branding.png" alt="Generic placeholder image">
-      </div>
-      <div class="Media-content">
-        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.</p>
-        <p class="Media-more"><a href="">Read More</a></p>
-      </div>
-    </div>
-  </article>
+  {% include 'single-resource.twig' %}
 
-  <div class="Card Card--column">
-    <div class="Card-image">
-      <a href="">
-        <img src="https://d13yacurqjgara.cloudfront.net/users/120724/screenshots/2681107/brand-explore-10.jpg" alt="Generic placeholder image">
-      </a>
-    </div>
-    <div class="Card-body">
-      <p class="meta">Category</p>
-      <h3 class="Card-title"><a href="#">Card heading</a></h3>
-      <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at.</p>
-      <p class="more"><a href="">Learn More</a></p>
-    </div>
-  </div>
+  <div class="resource container">
 
-
-
-  <ul class="List">
-    <li><a href="#">Cras justo odio</a></li>
-    <li><a href="#">Dapibus ac facilisis in</a></li>
-    <li><a href="#">Morbi leo risus</a></li>
-    <li><a href="#">Porta ac consectetur ac</a></li>
-    <li><a href="#">Vestibulum at eros</a></li>
-  </ul>
-
-  <nav class="Nav Nav--inline">
-    <a class="Nav-link" href="#">Active</a>
-    <a class="Nav-link" href="#">Link</a>
-    <a class="Nav-link is-active" href="#">Another Link</a>
-    <a class="Nav-link" href="#">Click Me</a>
-  </nav>
-
-  <div class="Banner Banner--small" style="background-image:url()">
-    <h1>Climate Change</h1>
-  </div>
-
-  <footer class="Footer">
-    <div class="container">
+    <div class="resource-sidebar">
+      <a href="" class="Button">Clear Filters</a>
+      <h4>Topic</h4>
       <ul class="List">
-        <li><a href="#">Cras justo odio</a></li>
-        <li><a href="#">Dapibus ac facilisis in</a></li>
-        <li><a href="#">Morbi leo risus</a></li>
-        <li><a href="#">Porta ac consectetur ac</a></li>
-        <li><a href="#">Vestibulum at eros</a></li>
+        <li>
+          <!-- <div class="topic-box">
+            <svg aria-hidden="true" role="presentation">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#check"></use>
+            </svg>
+          </div> -->
+          About Us
+        </li>
       </ul>
     </div>
-  </footer>
+
+    <div class="resource-body">
+      <p class="Lead Lead--intro">GCF works to safeguard the earth—its people, its plants and animals, and the natural systems on which all life depends.</p>
+
+      <article class="Media">
+        <div class="Media-head">
+          <div class="Media-tag">
+            <a href="" class="Pill">Article</a>
+          </div>
+          <h4 class="Media-title"><a href="#">Clicking Clean: Which Companies Are Building Us a Green Internet?</a></h4>
+          <p class="meta">March 1, 2014  |  Niko Solihin</p>
+        </div>
+        <div class="Media-body">
+          <div class="Media-content">
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.</p>
+            <p class="Media-more"><a href="">Read More</a></p>
+          </div>
+          <div class="Media-image">
+            <img src="https://d13yacurqjgara.cloudfront.net/users/664525/screenshots/2712501/tubikstudio_ui_swiftybeaver.png" alt="Generic placeholder image">
+          </div>
+        </div>
+      </article>
+
+      <article class="Media">
+        <div class="Media-head">
+          <div class="Media-tag">
+            <a href="" class="Pill">Publication</a>
+          </div>
+          <h4 class="Media-title"><a href="#">Clicking Clean: Which Companies Are Building Us a Green Internet?</a></h4>
+          <p class="meta">March 1, 2014  |  Niko Solihin</p>
+        </div>
+        <div class="Media-body">
+          <div class="Media-content">
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.</p>
+            <!-- <p class="Media-more"><a href="">Read More</a></p> -->
+          </div>
+          <div class="Media-image">
+            <img src="https://d13yacurqjgara.cloudfront.net/users/414899/screenshots/2689816/the_grant_branding.png" alt="Generic placeholder image">
+          </div>
+        </div>
+      </article>
+
+
+    </div>
+
+  </div>
+
 </main>
 {% endblock %}

@@ -15,6 +15,7 @@ var short           = require('postcss-short')
 var clearfix        = require('postcss-clearfix')
 var flexbox         = require('postcss-flexbox')
 var flexbugs        = require('postcss-flexbugs-fixes')
+var lost            = require('lost')
 var quantityQueries = require('postcss-quantity-queries')
 var autoprefixer    = require('autoprefixer')(config.tasks.css.autoprefixer)
 var cssnano         = require('cssnano')
@@ -30,6 +31,7 @@ var cssTask = function () {
     clearfix,
     flexbox,
     flexbugs,
+    lost,
     quantityQueries,
     autoprefixer,
     cssnano

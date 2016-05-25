@@ -1,11 +1,15 @@
 {% include 'html-header.twig' %}
 
 <body class="{{body_class}}">
+	{% include 'utility/svg.twig' %}
 
 	{% block before_content %}{% endblock %}
 	{% block content %}{% endblock %}
 	{% block after_content %}{% endblock %}
 
 	{{ function('wp_footer') }}
+
+	<!-- remove this -->
+	<script src="https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js"></script>
 </body>
 </html>

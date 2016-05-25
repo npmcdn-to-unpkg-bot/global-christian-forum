@@ -5,9 +5,36 @@
 .container {
   max-width: $container-width;
   margin: 0 auto;
+  padding: 0 $spacer-single;
 }
 .container-text {
   max-width: $container-text-width;
-  padding: 0 $spacer-single*1.25;
+  padding: 0 $spacer-single;
   margin: 0 auto;
+  &--left {
+    margin: 0 auto 0 0;
+  }
+  &--right {
+    margin: 0 0 0 auto;
+  }
+  &--nopadding {
+    padding: 0;
+  }
+}
+
+[class*="-sidebar"] {
+  color: $sidebar-color;
+  font-size: $sidebar-font-size;
+  background-color: $sidebar-bg;
+  padding: $sidebar-padding;
+  h5, h6 {
+    color: $sidebar-heading-color;
+    font-size: $sidebar-font-size;
+  }
+}
+
+svg {
+  fill: $svg-fill;
+  size: $svg-size;
+  margin-right: $svg-margin;
 }

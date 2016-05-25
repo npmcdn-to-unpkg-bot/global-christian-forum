@@ -93,7 +93,7 @@ function resources_post_type() {
 		'description'           => __( 'Custom post type for resources', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'revisions' ),
-		'taxonomies'            => array( 'resource_type' ),
+		'taxonomies'            => array( 'resource_type', 'resource_topic' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,

@@ -3,15 +3,12 @@ html {
   -webkit-font-smoothing: antialiased;
   text-size-adjust: 100%;
   font-family: $font-family;
-  font-size: 17px;
-  @include from(sm) {
+  font-size: $font-size-root;
+  @include from(md) {
     font-size: 18px;
   }
-  @include from(md) {
+  @include from(xl) {
     font-size: 19px;
-  }
-  @include from(lg) {
-    font-size: 20px;
   }
 }
 
@@ -27,6 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: $font-size-h1;
+  margin: $spacer-half 0;
 }
 
 h2 {
@@ -89,20 +87,21 @@ hr {
 //=============================================
 // Classes
 //=============================================
-
 .Lead {
   text: $lead-font-color $lead-font-weight left none $lead-font-size $lead-line-height normal;
   margin: $lead-margin 0;
   &--intro {
     text-align: left;
+    margin-top: 0;
   }
   &--pullquote {
     text-align: center;
   }
 }
 .meta {
+  text: #999 $font-weight-normal left normal .9rem 1 normal;
   margin-bottom: 0;
 }
 .Heading {
-  text: #ababab $font-weight-bold left uppercase $font-size-h5 $headings-line-height 2px;
+  text: $caps-heading-color $font-weight-bold left uppercase $caps-heading-font-size $headings-line-height $caps-heading-letter-spacing;
 }
